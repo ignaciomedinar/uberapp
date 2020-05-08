@@ -1,0 +1,32 @@
+{
+  "name": "uberapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "DEBUG=app:* nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "Nodejs",
+    "Express",
+    "JWT",
+    "Sequelize",
+    "MySQL",
+    "Authentication"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.3.0",
+    "mysql2": "^1.6.1",
+    "node-php-password": "^0.1.2",
+    "sequelize": "^4.39.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
