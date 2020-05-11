@@ -8,55 +8,47 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER(10).UNSIGNED,
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
       },
       id_chofer: {
         type: DataTypes.INTEGER(10).UNSIGNED,
-        allowNull: false,
-        references: {
-          model: "choferes",
-          key: "id_chofer"
-        }
+        allowNull: true,
       },
       id_gasto: {
         type: DataTypes.INTEGER(10).UNSIGNED,
         allowNull: true,
-        references: {
-          model: "gastos",
-          key: "id"
-        }
       },
       uber: {
         type: DataTypes.FLOAT(30),
-        allowNull: false
+        allowNull: false,
       },
       didi: {
         type: DataTypes.FLOAT(30),
-        allowNull: false
+        allowNull: false,
       },
       renta: {
         type: DataTypes.FLOAT(30),
-        allowNull: false
+        allowNull: false,
       },
       fecha: {
         type: DataTypes.INTEGER(30),
-        allowNull: false
+        allowNull: false,
       },
       semana: {
         type: DataTypes.STRING(20),
-        allowNull: false
+        allowNull: false,
       },
       debe: {
         type: DataTypes.FLOAT(30),
-        allowNull: false
+        allowNull: false,
       },
       utilidad: {
         type: DataTypes.FLOAT(30),
-        allowNull: false
+        allowNull: false,
       },
     },
     {
-      tableName: "ingresos"
+      tableName: "ingresos",
     }
   );
 

@@ -22,12 +22,12 @@ const db = require("./config/db.config.js");
 
 const Ingreso = db.ingreso;
 const Log = db.log;
-const User = db.user;
+const Auto = db.auto;
 
 // force: true will drop the table if it already exists
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
   //  inicializar la base con algunos registros
-  //initialize()
+  initialize();
 });
 
 // Create a Server
@@ -39,14 +39,20 @@ var server = app.listen(8080, function () {
 });
 
 function initialize() {
-  Ejercicio.create({
-    nombre: "Ejemplo1",
-    numero: "29.2",
-    email: "ejemplo1@equis.com",
+  Auto.create({
+    placa: "333AAA",
+    modelo: "2019",
+    color: "Blanco",
+    owner: "Manuel",
+    porcentaje: "10",
+    status: 1,
   });
-  Ejercicio.create({
-    nombre: "Ejemplo2",
-    numero: "7",
-    email: "ejemplo2@equis.com",
+  Auto.create({
+    placa: "111CAA",
+    modelo: "2017",
+    color: "Negro",
+    owner: "Jorge",
+    porcentaje: "15",
+    status: 1,
   });
 }
