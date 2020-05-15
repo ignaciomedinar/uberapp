@@ -16,22 +16,23 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: "autos",
           key: "id"
-        }
+        },
+        defaultValue : 0
       },
       nombre: {
         type: DataTypes.STRING(30),
         allowNull: false,
       },
       celular: {
-        type: DataTypes.INTEGER(11),
-        allowNull: false
+        type: DataTypes.STRING(10),
+        allowNull: true
       },
       email: {
         type: DataTypes.STRING(50),
         allowNull: true
       },
       clabe: {
-        type: DataTypes.INTEGER(30),
+        type: DataTypes.STRING(18),
         allowNull: true
       },
       status: {
