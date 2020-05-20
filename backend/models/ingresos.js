@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       fecha: {
-        type: DataTypes.INTEGER(30),
+        type: DataTypes.DATE(6),
         allowNull: false,
       },
       semana: {

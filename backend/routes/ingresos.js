@@ -8,8 +8,11 @@ function ingresosApi(app) {
   const ingresosService = new IngresosService();
 
   router.get("/", async function(req, res, next) {
+
+    let mes=req.query.mes;
+    console.log("Mes: "+mes);
     try {
-      const ingresos = await ingresosService.getIngresos();
+      const ingresos = await ingresosService.getIngresos(mes);
 
       res.status(200).json({
         data: ingresos,

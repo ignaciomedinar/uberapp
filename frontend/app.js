@@ -117,7 +117,7 @@ const loadIngresos = (ingresos) => {
 
 // solicitar los ingresos al API
 const getIngresos = () => {
-    var url = "http://localhost:8080/api/ingresos";
+    var url = "http://localhost:8080/api/ingresos?mes="+moment().format("MMM");
     fetch(url)
       .then((res) => res.json())
       .catch((error) => console.error("Error:", error))
@@ -129,20 +129,20 @@ const getIngresos = () => {
   const cargaIngresos = () => {
     // orden de ultima fecha a más reciente
     //const menu = document.getElementById("datos");
-    const arrSort = arregloDatos.sort((a, b) => {
+    const arrSort = arregloIngresos.sort((a, b) => {
       // console.log(a.numero, typeof a.numero)
       return b.fecha - a.fecha;
     }); //(a, b) => b.id - a.id);
     // agarro los ultimos n elementos para mostrar
     arrSort.splice(5);
-    menu.innerHTML = arrSort
+    tablaIngresos.innerHTML = arrSort
       .map((dato) => {
         return `
         <tr id="${dato.id}">
           <td>${dato.semana}</td>
           <td>${dato.chofer}</td>
           <td>${dato.auto}</td>
-          <td>${dato.fecha}</td>
+          <td>${moment(dato.fecha).format('L')}</td>
           <td>${dato.uber}</td>
           <td>${dato.didi}</td>
           <td>${dato.renta}</td>

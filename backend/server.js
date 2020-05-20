@@ -97,17 +97,28 @@ function initializeChofer() {
   });
 }
 
+const uber=1500
+const didi=1700
+const renta=2100
+
 function initializeIngreso() {
   Ingreso.create({
     semana: 1,
     chofer: "Manuel",
     auto: "333AAA",
-    fecha: 19,
-    uber: 1500,
-    didi: 1700,
-    renta: 2100,
-    paraChofer: 1500+1700-2100,
+    fecha: "05-19-20",
+    uber: uber,
+    didi: didi,
+    renta: renta,
+    paraChofer: suma([uber,didi,-renta]),
     owner: "Juan",
-    utilidad: 2100
+    utilidad: renta
   });
 }
+
+
+function suma(arrNumeros){var sum = arrNumeros.reduce(function(a, b){
+        return a + b;
+    }, 0);
+    return sum }
+    

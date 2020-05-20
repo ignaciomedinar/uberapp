@@ -9,10 +9,8 @@ class IngresosService {
     this.actions = actions;
   }
 
-  async getIngresos() {
-    const ingresos = await this.Ingreso.findAll({
-      where: { status: 1 },
-    });
+  async getIngresos(mes) {
+    const ingresos = await this.Ingreso.findAll();
     return ingresos || [];
   }
 
