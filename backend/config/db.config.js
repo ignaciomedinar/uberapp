@@ -26,11 +26,13 @@ db.chofer = require("../models/choferes.js")(sequelize, Sequelize);
 db.auto = require("../models/autos.js")(sequelize, Sequelize);
 db.gasto = require("../models/gastos.js")(sequelize, Sequelize);
 db.ingreso = require("../models/ingresos.js")(sequelize, Sequelize);
+db.deuda = require("../models/deudas.js")(sequelize, Sequelize);
 db.log = require("../models/log.js")(sequelize, Sequelize);
 
 //Relations
 
 db.chofer.belongsTo(db.auto, { foreignKey: "id_auto" });
+db.deuda.belongsTo(db.chofer, { foreignKey: "id_chofer" });
 
 db.chofer.hasMany(db.ingreso, { foreignKey: "id_chofer" });
 db.gasto.hasMany(db.ingreso, { foreignKey: "id_gasto" });

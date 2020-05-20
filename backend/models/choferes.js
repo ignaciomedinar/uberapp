@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
           model: "autos",
           key: "id"
         },
-        defaultValue : 0
+        // defaultValue : 0
       },
       nombre: {
         type: DataTypes.STRING(30),

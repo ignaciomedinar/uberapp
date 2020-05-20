@@ -30,16 +30,16 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.FLOAT(30),
         allowNull: false,
       },
+      paraChofer: {
+        type: DataTypes.FLOAT(30),
+        allowNull: false,
+      },
       fecha: {
         type: DataTypes.INTEGER(30),
         allowNull: false,
       },
       semana: {
         type: DataTypes.STRING(20),
-        allowNull: false,
-      },
-      debe: {
-        type: DataTypes.FLOAT(30),
         allowNull: false,
       },
       utilidad: {

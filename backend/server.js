@@ -5,6 +5,7 @@ const ingresosApi = require("./routes/ingresos");
 const autosApi = require("./routes/autos")
 const choferesApi = require("./routes/choferes")
 const gastosApi = require("./routes/gastos")
+const deudasApi = require("./routes/deudas")
 
 app.use(express.json());
 app.use(function (req, res, next) {
@@ -22,6 +23,7 @@ ingresosApi(app);
 autosApi(app);
 choferesApi(app);
 gastosApi(app);
+deudasApi(app);
 
 // HACER SYNC CON LA BD
 const db = require("./config/db.config.js");
@@ -31,12 +33,15 @@ const Log = db.log;
 const Auto = db.auto;
 const Chofer = db.chofer;
 const Gasto = db.gasto;
+const Deuda = db.deuda;
+
 
 // force: true will drop the table if it already exists
-db.sequelize.sync({ force: false }).then(() => {
+db.sequelize.sync({ force: true }).then(() => {
   //  inicializar la base con algunos registros
   initialize();
   initializeChofer();
+  initializeIngreso();
 });
 
 // Create a Server
@@ -64,15 +69,15 @@ function initialize() {
     porcentaje: "15",
     status: 1,
   }); 
-  Auto.create({
-    id: 0,
-    placa: "NA",
-    modelo: "Unassigned",
-    color: "NA",
-    owner: "NA",
-    porcentaje: "0",
-    status: 1,
-  }); 
+  // Auto.create({
+  //   id: 0,
+  //   placa: "NA",
+  //   modelo: "Unassigned",
+  //   color: "NA",
+  //   owner: "NA",
+  //   porcentaje: "0",
+  //   status: 1,
+  // }); 
 }
 
 function initializeChofer() {
@@ -89,5 +94,20 @@ function initializeChofer() {
     email: "manuel@comi.com",
     clabe: "123456789012345678",
     status: 1,
+  });
+}
+
+function initializeIngreso() {
+  Ingreso.create({
+    semana: 1,
+    chofer: "Manuel",
+    auto: "333AAA",
+    fecha: 19,
+    uber: 1500,
+    didi: 1700,
+    renta: 2100,
+    paraChofer: 1500+1700-2100,
+    owner: "Juan",
+    utilidad: 2100
   });
 }
